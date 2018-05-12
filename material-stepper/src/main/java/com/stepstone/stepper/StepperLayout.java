@@ -382,11 +382,14 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
     @UiThread
     public void onTabClicked(int position) {
         if (mTabNavigationEnabled) {
+            setCurrentStepPosition(position);
+/*
             if (position > mCurrentStepPosition) {
                 onNext();
             } else if (position < mCurrentStepPosition) {
                 setCurrentStepPosition(position);
             }
+*/
         }
     }
 
