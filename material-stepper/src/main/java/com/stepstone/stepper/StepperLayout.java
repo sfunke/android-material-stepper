@@ -1005,7 +1005,7 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
     }
 
     private void onUpdate(int newStepPosition, boolean userTriggeredChange) {
-        mPager.setCurrentItem(newStepPosition);
+        mPager.setCurrentItem(newStepPosition, false);
         final boolean isLast = isLastPosition(newStepPosition);
         final boolean isFirst = newStepPosition == 0;
         final StepViewModel viewModel = mStepAdapter.getViewModel(newStepPosition);
