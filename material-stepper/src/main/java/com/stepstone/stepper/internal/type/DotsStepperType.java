@@ -35,7 +35,11 @@ public class DotsStepperType extends AbstractStepperType {
 
     private static final int EDIT_MODE_DOT_COUNT = 3;
 
-    private final DottedProgressBar mDottedProgressBar;
+    public DottedProgressBar getDottedProgressBar() {
+        return mDottedProgressBar;
+    }
+
+    public final DottedProgressBar mDottedProgressBar;
 
     public DotsStepperType(StepperLayout stepperLayout) {
         super(stepperLayout);

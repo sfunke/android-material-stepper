@@ -21,6 +21,7 @@ open class StepperLayoutActivity : FragmentActivity() {
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         stepperLayout = StepperLayout(this, stepperLayoutAttributeSet)
         stepperLayout.layoutParams = layoutParams
+//        stepperLayout.dotsStepperType.dottedProgressBar.setDotCount()
         setContentView(stepperLayout)
     }
 

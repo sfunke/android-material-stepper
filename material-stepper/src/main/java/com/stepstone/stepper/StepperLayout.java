@@ -49,6 +49,7 @@ import com.stepstone.stepper.adapter.StepAdapter;
 import com.stepstone.stepper.internal.feedback.StepperFeedbackType;
 import com.stepstone.stepper.internal.feedback.StepperFeedbackTypeFactory;
 import com.stepstone.stepper.internal.type.AbstractStepperType;
+import com.stepstone.stepper.internal.type.DotsStepperType;
 import com.stepstone.stepper.internal.type.StepperTypeFactory;
 import com.stepstone.stepper.internal.util.AnimationUtil;
 import com.stepstone.stepper.internal.util.TintUtil;
@@ -1051,5 +1052,13 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
         } else {
             mBackNavigationButton.setText(backButtonTextForStep);
         }
+    }
+
+
+    public DottedProgressBar getDottedProgressbar() {
+        if(mStepperType instanceof DotsStepperType) {
+            return ((DotsStepperType) mStepperType).getDottedProgressBar();
+        }
+        throw new IllegalStateException("Could not access Dotted Progress Bar, mStepperType is not of Type DotsStepperType");
     }
 }
