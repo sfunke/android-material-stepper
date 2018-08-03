@@ -19,7 +19,6 @@ package com.stepstone.stepper.internal.widget;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
-import android.support.annotation.RestrictTo;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -30,12 +29,9 @@ import android.widget.LinearLayout;
 import com.stepstone.stepper.R;
 import com.stepstone.stepper.internal.util.TintUtil;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY;
-
 /**
  * An indicator displaying the current position in a list of items with dots.
  */
-@RestrictTo(LIBRARY)
 public class DottedProgressBar extends LinearLayout {
 
     private static final float FULL_SCALE = 1f;
