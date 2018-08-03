@@ -80,7 +80,7 @@ public class DottedProgressBar extends LinearLayout {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.ms_dot, this, false);
             addView(view);
         }
-        setCurrent(0, false);
+        setCurrent(Math.max(this.mCurrent, this.mDotCount - 1), false);
     }
 
     /**
