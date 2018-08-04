@@ -937,7 +937,7 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
         return position == mStepAdapter.getCount() - 1;
     }
 
-    private Step findCurrentStep() {
+    public Step findCurrentStep() {
         return mStepAdapter.findStep(mCurrentStepPosition);
     }
 
@@ -946,10 +946,10 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
     }
 
     @UiThread
-    private void onNext() {
+    public void onNext() {
         Step step = findCurrentStep();
 
-        if (verifyCurrentStep(step)) {
+        if (verifyStep(step)) {
             invalidateCurrentPosition();
             return;
         }
@@ -966,7 +966,25 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
         mStepperType.onStepSelected(mCurrentStepPosition, false);
     }
 
-    private boolean verifyCurrentStep(Step step) {
+    /**
+     * Verifies current Step
+     * @return true, if current Step is valid, else false
+     */
+    public boolean verifyCurrentStep() {
+        Step step = findCurrentStep();
+        boolean result = verifyStep(step);
+        if (result) {
+            invalidateCurrentPosition();
+        }
+        return !result;
+    }
+
+    /**
+     * Verifies specific Step
+     * @param step
+     * @return false, if step is valid, true, if invalid (reversed logic ... )
+     */
+    public boolean verifyStep(Step step) {
         final VerificationError verificationError = step.verifyStep();
         boolean result = false;
         if (verificationError != null) {
@@ -990,9 +1008,9 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
         mListener.onError(verificationError);
     }
 
-    private void onComplete() {
+    public void onComplete() {
         Step step = findCurrentStep();
-        if (verifyCurrentStep(step)) {
+        if (verifyStep(step)) {
             invalidateCurrentPosition();
             return;
         }
